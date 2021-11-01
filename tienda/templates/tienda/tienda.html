@@ -4,6 +4,27 @@
 
 {% block content %} 
 
-<h1>tienda lalala</h1>
+
+<div class="container">
+    <div class="row">
+    {% for producto in productos %} 
+    <div class="col-md-3" >
+        <div class="card mt-3 mb-2 p-3" >
+            <div class="cardtienda">
+            <img src="{{producto.imagen.url}}" class="card-img-top" alt="producto" >
+            </div>
+            <div class="card-body">
+            <h5 class="card-title text-danger">{{producto.nombre}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">$ &nbsp;{{producto.precio}}</h6>
+                <div>
+          <span> <a href="#" class="card-link row text-center">+ Detalles</a></span>
+       <span><a href="#" class="card-link row text-center">+ Categoria {{producto.categoria}}</a></span>
+        </div> 
+    </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
