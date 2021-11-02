@@ -1,12 +1,14 @@
 class Carro:
+
     def __init__(self, request):
+
         self.request = request
         self.session = request.session
         carro = self.session.get('carro')
+
         if not carro:
             carro = self.session["carro"]={}
-        else:
-            self.carro = carro 
+        self.carro = carro 
     
     def agregar(self, producto):
         if (str(producto.id) not in self.carro.keys()):
@@ -34,7 +36,7 @@ class Carro:
             del self.carro[producto.id]
             self.guardar()
 
-    def restar_producto(self, producto):
+    def restar(self, producto):
         for key, value in self.carro.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]-1
@@ -47,5 +49,10 @@ class Carro:
         self.session["carro"]={}
         self.session.modified=True
 
+    def subtotal(request, producto):
 
-
+        sub = 0
+        if producto in request.session['carro']:
+            for key, value in request.session["carro"].items():
+                sub = float(value["precio"])*float(value["cantidad"])
+        return sub 
