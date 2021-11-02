@@ -23,6 +23,7 @@ class Carro:
             for key, value in self.carro.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]+1
+                    value["precio"]=float(value["precio"])+producto.precio
                     break 
         self.guardar()
 
@@ -40,6 +41,7 @@ class Carro:
         for key, value in self.carro.items():
                 if key==str(producto.id):
                     value["cantidad"]=value["cantidad"]-1
+                    value["precio"]=float(value["precio"])-producto.precio
                     if value["cantidad"]<1:
                         self.eliminar(producto)
                     break 
@@ -49,10 +51,3 @@ class Carro:
         self.session["carro"]={}
         self.session.modified=True
 
-    def subtotal(request, producto):
-
-        sub = 0
-        if producto in request.session['carro']:
-            for key, value in request.session["carro"].items():
-                sub = float(value["precio"])*float(value["cantidad"])
-        return sub 
