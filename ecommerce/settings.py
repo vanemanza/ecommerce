@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     #apps propias
     'webapp',
     'servicios',
@@ -46,6 +47,8 @@ INSTALLED_APPS = [
     'tienda',
     'carro',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -3,46 +3,29 @@
 {% load static %} 
 
 {% block content %} 
+<div class="container">
 
-{% for post in posts %} 
-
-<section class="page-section clearfix">
-    <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 50%;">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4" >
-            <span class="section-heading-lower">{{post.titulo}}</span>           
-          </h2>
-          <h3>
-            <span class="section-heading-upper">{{post.contenido}}</span>
-          </h3>
-          <div>
-            <span class="section-heading-upper" style="font-size: 10px;">Autor : {{post.autor}}</span>
-          </div>                     
-        </div>
+  {% for post in posts %} 
+<div class="card m-3 border-2 border-info" style="width: 100%;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{post.imagen.url}}" class=" rounded mt-5 m-lg-3" alt="..." >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{post.titulo}}</h5>
+        <p class="card-text">{{post.contenido}}</p>
+        <p class="card-text"><small class="text-muted">{{post.updated}}</small></p>
+      </div>
+      <div class="footer ">
+        
+        <a href = "#" class="row ">{{post.categoria}}</a>
+       
       </div>
     </div>
-  </section>
-{% endfor %}  
-
-    <section>
-        <div style="width:75%; color:white; margin:0 auto; text-align: center; padding: 15px;"> 
-          
-          Categorias: 
-
-          {% for post in posts %} 
-
-            {% for categoria in post.categorias.all %}
-      
-            <a href = "{% url 'categoria' categoria.id %}" class="linksCategorias"> {{categoria.nombre}} </a>&nbsp;
-
-            {% endfor %}  
-
-         {% endfor %}  
-        
-        </div>
-      </section>
-    
+  </div>
+</div>
+{% endfor %}
+</div> 
 
 {% endblock %}  

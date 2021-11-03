@@ -4,8 +4,8 @@ from .models import *
 # Create your views here.
 def blog(request):
     posts = Post.objects.all()
-   
-    contexto = {'posts': posts,}
+    
+    contexto = {'posts': posts}
     
     return render(request, 'blog/blog.html', contexto)
 

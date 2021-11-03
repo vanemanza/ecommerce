@@ -3,32 +3,35 @@
 {% load static %} 
 
 {% block content %} 
+<div class="container mt-5">
+<div class="row row-cols-sm-5 row-cols-md-3 g-4">
+  {% for producto in productos %} 
+  <div class="col">
 
-<div class="row">    
-    <div class="col-md-9">        
-        <div class="row row-cols-1 row-cols-md-3 g-4"> 
-            {% for producto in productos %} 
-            <div class="col">               
-              <div class="card">
-                <img src="{{producto.imagen.url}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{producto.nombre}}</h5>
-                  <p class="card-text">$ {{producto.precio}}</p>
-                  <span> <a href="#" class="card-link row text-center">+ Detalles</a></span>
-                  <span><a href="#" class="card-link row text-center">+ Categoria {{producto.categoria}}</a></span>
-                </div>
-                <div class="card-footer text-center">                 
-                    <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success m-2">Agregar</a>
-                </div>  
-               </div>
-             </div>
-              {% endfor %}
-            </div>           
+    <div class="card border-2 border-info">
+      <img src="{{producto.imagen.url}}" class="card-img-top p-2 " alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{producto.nombre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">$  {{producto.precio}}</h6>       
+        <a href="#" class="card-link"> + Info </a>
+        <a href="#" class="card-link">+ {{producto.categoria}}</a>
+      </div>
+       <div class="footer p-2">
+        <a href="#" class="btn btn-outline-success">Agregar al Carro</a>
+        <a href="#" class="btn btn-success">Comprar</a>
+      </div>
     </div>
-
- <div class="col-2" style="float:right ; margin-top: 15px;">
    
-            {% include "carro/widget.html" %}
+  </div>
+  {% endfor %}  
+</div>
+</div>
+
+   
+
+ <!--div class="col-2" style="float:right ; margin-top: 15px;">
+   
+           < {% include "carro/widget.html" %} >
         
-        </div></div>
+        </div--></div>
 {% endblock %}

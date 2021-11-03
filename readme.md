@@ -1,7 +1,6 @@
-Falta:
+* Modelo de Ecommerce
 
-- Carro: autenticarse
-         confirmar compra
-        
-- Productos: Crear vista de productos x categoria
-             Link a más info de los productos (+ detalles)        
+Mi versión del tutorial de @PildorasInformaticas, sobre un ecommerce para Gestión de Pedidos.
+
+
+

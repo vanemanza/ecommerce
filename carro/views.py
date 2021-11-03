@@ -4,6 +4,7 @@ from tienda.models import Producto
 
 # Create your views here.
 
+
 def agregar(request, id):
     carro = Carro(request)
     producto = Producto.objects.get(id=id)

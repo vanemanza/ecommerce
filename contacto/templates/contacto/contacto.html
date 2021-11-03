@@ -4,22 +4,27 @@
 
 {% block content %} 
 
-  <div class="contenedorFormulario">
+  <div class="row mt-3" style="margin: 0px auto; display:flex; justify-content: space-evenly;">
+  <div class="col-md-5 m-3  border border-2 border-info rounded text-primary">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d95762.98686796894!2d-75.73197437424759!3d41.4046370239794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c4d93a77484bbb%3A0xfff27920ab9bfae8!2sScranton%2C%20Pensilvania%2C%20EE.%20UU.!5e0!3m2!1ses-419!2sar!4v1635963957361!5m2!1ses-419!2sar"  style="width: 95%; height: 95%; margin: 0px auto;" allowfullscreen="" loading="lazy" class="border border-2 border-warning rounded m-3"></iframe>
+  </div>
+
+  <div class="col-md-5 m-3  border border-2 border-info rounded text-primary">
 
       {% if "valido" in request.GET %}
-        <p style="color: yellow">Información enviada con éxito!</p>
+        <p class="bg-success rounded mt-2 text-white text-center p-1">Información enviada con éxito!</p>
       {% endif %}  
       <form action="" method="POST" style="text-align: center;">
         {% csrf_token %}
 
-        <table style="color: white; margin: 20px auto;">
-            {{form.as_table}}
+        <table style=" margin: 20px auto;">
+            {{form.as_table }}
         </table>
-        <input type="submit" value="enviar" style="width: 150px;">
+        <input type="submit" value="enviar" style="width: 150px;" class="btn btn-outline-success">
 
       </form>
     
   </div>
-
+</div>
 
 {% endblock %}
