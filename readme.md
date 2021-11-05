@@ -1,6 +1,6 @@
 Modelo de Ecommerce
 
-- Mi versión del tutorial de @PildorasInformaticas, sobre un ecommerce para Gestión de Pedidos.
+- Proyecto de Ecommerce para gestion de pedidos, basado en el tutorial de Django de Píldoras Informáticas.
 
 
 
